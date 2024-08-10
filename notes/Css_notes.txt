@@ -1,0 +1,530 @@
+* CSS3-3:- latest version of css.
+
+* What is Css (Cascading Style Sheet) :- It is a language that is used to describe the Style of a document.
+
+
+
+**************************************************** Concept -1 ******************************************************
+
+* Basic Format:-  h1 {
+                        property: value;
+                     }
+
+* How to include styles in html:- 
+                                1. Inline styles:- Writing styles in element itself.
+                                --> <h1 style="color:red" > Hello World </h1>
+                                ---> Element specific:- Inline style jis element par apply karenge bas usi element me apply hoga. 
+                            *** --> Problem with Inline sytle:- We have to write style for each element each time, 
+                                    even if elements are of the same type.
+
+                                2. Internal Css:- Using <style> tag in head of the html document.
+                                --> This apply Css in a particular document.
+                                -->     <style>
+                                                h1 {
+                                                    property: value;
+                                                }
+                                        </style>
+                            *** ---> Problem with Inline Css:- It will add css to only one file/document. not feasible for large website.
+
+                                3. External Css:- Writing styles in a seperate document and linking it with html document.
+                                --> <link href="style.css" rel="stylesheet" >
+
+** Color property:- Used to set the color of foreground.
+* Background-color property:- used to set the color of Background.
+
+* Color Systems:- 
+                 1. Named colors:- color ka name likhna. ex:- red, black,etc.
+                 --> Each browser recognises around 140-150 named colors.
+
+                 2. RGB(Red, Green, Blue) [0-255]:- colors ka value likhte hai.
+                 --> color: rgb(255,140,18);
+
+                 3. Hexcode or Hexadecimal( #ffffff):- another form of RGB but compact, using letter or digits.
+                 --> 16 characters:- 0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F.
+                 --> red: 0-255; = red: 00-ff;
+
+** Text property:- 
+                  1. Text-align:- texts ko koi direction dena, according to parent element.
+                                 text-align: left/start;
+                                 text-align: right/end;
+                                 text-align: center;
+                                 text-align: justify;  --> jusitfy:- texts ke bich me space increase karna so that sari lines ki
+                                                                     horizontal alignment bna rahe.
+                                                                                            
+
+                  2. font-weight(100-900):- text kitna light ya bold hoga.
+                                font-weight: normal;  //value=400; 
+                                font-weight: bold;    //value=700;
+                                font-weight: 100;
+                                font-weight: lighter;    // relative to parent.
+                                font-weight: bolder;      // relative to parent.
+
+                  3. text-decoration:- to set the appearance of decorative lines on text.
+                                       text-decoration: red underline;
+                                       text-decoration: overline;
+                                       text-decoration: line-through;
+
+                                       --> we can change text decoration color and shape.
+                                       --> shpaes:- solid, double, dotted, dashed, wavy.
+
+                                       --> text-decoration: dashed red underline;
+                                       --> It is used to:- underline, line through and to remove the by default underline of anchor tag.
+                                       --> text-decoration: none;
+
+                  4. line-height:- controls the height of the line of text.
+                                      line-height: normal;
+                                      line-height: 2.5;          --> 2.5 times normal
+
+                  5. letter-spacing:- controls the horizontal space between texts.
+                                      letter-spacing: normal;
+                                      letter-spacing: 10px;
+
+                  6. font-size:- text kitna bada ya chhota hoga.
+                             --> absolute units:- px, cm, mm, in, pc, pt etc.
+                             --> 1 inch = 96 px.
+                             --> reltative units:- %, em, rem, vh, vw , ch etc.
+                             --> em:- current size ke according new size define hota h.
+                             --> rem:- parent ke according new size define hoga.
+                             --> px:- not used in responsive websites.
+                             --> font-size: 40px;
+
+                   7. font-family:- ye batata hai ki font ka type kya hona chahiye means kis tarike se dikhega.
+                     --> font-family: arial;
+                     --> font-family: avant grade, didot, sans-serif. ( backup family of fonts). 
+
+
+                    8. text-transform:- text lower case ya upper case me hoga.
+                                  text-transform: capitalize;
+                                  text-transform: uppercase;
+                                  text-transform: lowercase;
+                                  text-transform: none;
+
+
+
+**************************************************** Concept -2 **************************************************
+
+* Selectors in Css:- used to select one or group of elements so that styling can be applied.
+* Jab hme same property deni hoti h, multiple type of elements ko then hm different-different type ke elements ko comma(,)
+ ke sath select kar sakte h. aur ye sare type ke selectors ke liye valid h.
+
+              1. * ( Universal selector):- to select everything in a document.
+
+              2. Element selector:- selects all the elements of the same type. ex:- h1, p, div etc.
+                 --> h1, h3 {
+                    color: red;
+                 }
+
+              3. Id selector:- ye kisi ek particular element ko select karta h, based on the value of element's id attribute.
+              -->     #id_name {
+                                   property: value;
+                               }
+
+              4. class selector:- ek ya ek se jyade elements (same or different types) ko select karne ke liye.
+            -->      .class_name {
+                                    property: value;
+                                 }
+
+              5. descendent selector:- apne sare descendent elements ko select karta h.
+              --> isme direct descendent hona jaruri nhi h, child elements kisi v level par ho sakte h.
+              --> div p {
+                           property: value;
+                        }
+                        --> selects all paragraphs inside divs.
+            
+              6. Adjacent sibling combinator:- kisi element ke just bad wala element ko select karne ke liye.(elements should be in same level).
+              --> p + h3 {
+                           property: value;
+                         }
+                          --> selects h3 that comes immdiatly after any p.
+
+              7. child combinator:- select elements which are direct children of a parent element.
+              --> direct descendent :- ek level niche wala.
+              -->  span > button {
+                                    property: value;
+                                 }
+                                 --> selects all buttons which are direct children of span.
+            
+              8. attribute selector:- selects elements based on the presence or value of a given attribute.
+              -->   input[attr="value"] {
+                                             property: value;
+                                        }
+
+
+*** Pseudo class:- A keyword added to a selector that specifies a special state of the selected elements.
+--> Pseudo classes :- 1. hover 2.active 3. checked 4. nth-of-type
+-->   selector: pseudo_class {
+                                  property: value;
+                             }
+
+
+*** Pseudo Elements :- A keyword added to the selector that lets you style a specific part of the selected elements.
+--> Pseudo elements:- first-letter, first-line, selection.
+--> selector: pseudo_element {
+                                 property: value;
+                             }
+
+--> ::selection :- webpage ke uper kisi portion ko select karke sytle change karne ke liye.
+
+
+***Q. What is Cascade in Css ??
+--> The Css Cascade algorith's job is to select CSS declarations in order to determine the correct values for CSS properties.
+--> Cascade property kahta h ki bad me same element ke liye jo property define hua h , wahi lagu hoga.
+--> agar ek html file ke liye bht sare css file likhe h to jo last wala linked css file hoga uski properties apply hogi.
+
+--> Cascading same element par apply hota h.
+
+***Q. What is specificity??
+--> specificity mtlb hm kitna specifically kisi element ko target karke us par css apply kar rahe h. 
+--> specificity is an algorith that calculates the weight that is applied to a given css declaration.
+--> agar hmne different-different type ke selector use kiya h aur same element ki same property ko change karna chahte h the specificity use hota h.
+--> Importance:-  id > class, attribute & pseudo class > element, pseudo element.
+--> more selectors > less selectors.
+
+* Inline specificity:- Inline styels are more specific than id.
+
+*** Agar specificity same ho jati h then hm cascading dekhte hai.
+
+*** !Important :- to show the most Important thing in document.
+--> h2 {
+         Background-color: red !Important;
+       }
+
+
+*** Inheritance in Css:- jab uper wali generation se properties niche wali generation me jati h usi Inheritance kahte hai.
+--> to agar parent element ko koi property dete h to due to Inheritance wo properties automatically uske children aur grand children 
+   ko mil jayegi.
+--> Inheritance level wise work karta hai. parent--> children --> grand children.
+   --> And remember:- grand children apne parent se properties inherit karenge agar parent ke pass properties nhi h to apne grand parent 
+                      ki properties ko inherit karenge.
+   --> input boxes and buttons by default kisi v properties ko apne parents se inherit nhi karenge.
+   --> to forcefully inherit properties from parent --> element {
+                                                                     property: inherit;
+                                                                }
+
+ --> Kuchh properties hoti h jo non-inherited hoti h , ex:- height, width, border.
+
+
+
+
+
+ **************************************************** Concept -3 **************************************************
+
+
+ * Box Model in Css:- sare html elements browser me box ke under dikhte h, is phenomena ko css me Box Model kahte hai.
+ --> hm html ke under koi v element banate h, jaise:- p,h1,button,div,span or anything in sab ko browser as a box interpret karta hai.
+     aur in box ke kuchh compononets hote hai like:- content area, padding, border and margin.
+     --> content area:- wo actual area jisme hme kuchh dikhta h.
+
+--> agar div ke under koi v content nhi h to , div ka koi v height aur width nhi hoga.
+
+**** properties of box model :- 
+   
+   1. Height :- By default, it sets the height of the content area.
+   2. width :- By default, it sets the width of the content area.
+
+   3. Border :- Used to set an element's border.
+               1. border-width: 4px;
+               2. border-style: solid;
+               3. border-color: black;
+   --> Border shorthand :-            div {
+                                               border: width sytle color;
+                                          }
+
+   4. border sides :- It is used to control the individual side of the box.
+                      1. border-left
+                      2. border-right
+                      3. border-top
+                      4. border-button
+
+   5. Border radius :- Used to round the corners of an element's outer border edge.
+   --> individual corner ko v hm round kar sakte hai. 
+   --> border-top-right-radius: 50px;
+
+   6. padding :- space between content area and border of the element.
+                      1. padding-left
+                      2. padding-right
+                      3. padding-top
+                      4. padding-button
+---> element me padding or border dene se content area ke height and width change nhi hote h. balki wo add hokar element ki overall
+     height and width ko increase karte h.
+---> For frontend developers padding and margin is very Important.
+
+---> Padding shorthand :- 
+                         1. for all sides:-  padding: 10px;
+                                      
+                         2. top & buttom | left & right :- padding: 10px 20px;
+
+                         3. top | left & right | bottom :- padding: 5px 10px 20px;
+
+                         4. top | right | bottom | left :- padding: 1px 2px 3px 4px 
+     
+   7. Margin :- to set spacing on the outside of border.
+                      1. margin-left
+                      2. margin-right
+                      3. margin-top
+                      4. margin-button
+
+---> margin shorthand :- 
+                         1. for all sides:-  margin: 10px;
+                                      
+                         2. top & buttom | left & right :- margin: 10px 20px;
+
+                         3. top | left & right | bottom :- margin: 5px 10px 20px;
+
+                         4. top | right | bottom | left :- margin: 1px 2px 3px 4px 
+
+---> Kisi v element ki default margin ko hatane ke liye :- margin: 0;
+
+
+*** Display :- it sets whether an element is treated as inline or block element and the layout used for its children.
+     1. display: inline;    --> act as a inline element.
+     2. display: block;     --> act as a block element.
+     3. display: inline-block;  --> behave like inline elements but styling will be applied like block elements.
+     4. display: none;     --> kisi element ko screen se gayab karna ho to ye apply karte h.
+
+
+
+**************** Units in CSS :- 
+                                --> Relative units:- 
+                                   1. % :- child ka koi property parent element ke size ke relative set karne ke liye.
+                                   --> width: 33.33%;   --> relative to the parent height/width.
+                                   --> margin-left: 50%; --> relative to the parent height/width.
+
+                                   2. Em :- agar child element ke text-related properties ko change karna h to wo parent ke font-size ke 
+                                            relative me hota h.
+                                          --> agar child element ke other properties like height,width & margin ko set karna h to 
+                                              wo  child ke hi font-size ke relative me hota h.
+                                     --> typographical properties - text related properties.
+
+                                     ***---> Drawback of Em :- Snowball effect in nested elements.
+                                            --> section-->div-->div-->div
+                                            --> Here, font-size keep increasing/decreasing for each div child element, as we go in further.
+
+                                            --> to overcome Snowball effect we required another relative unit which is Rem.
+
+
+                                    3. Rem(Root Em):- Relative to font size of the root element.
+                                    --> For an HTML document the root element is <html>. so rem will work according to that.
+                                    --> for example:- section -->div-->div-->div 
+                                    --> so here as all the divs are inside section so we think section will be root for these div, but this is not true
+                                         in html document <html> will be root element for all elements present in html file, and rem will work according
+                                         to the font-size of <html> element.
+
+
+
+******************************************* Extra things ****************************************************
+
+** E1 :- To remove bullet points from unordered list items.     use-->          list-style: none;
+**  W2 :- Why bullet points disappear once we changed display: inline; of list items of unordered list??
+--> Because, <li> elements have default display property of list-item.And, bullet points can appear only on list-item elements,
+    Because we changed <li>'s display property to display: inline; bullet points will not appear.
+
+** E3 :- kisi v element ko center me lane ke liye :- margin: 0 auto;
+
+
+
+
+
+ **************************************************** Concept -4 **************************************************
+
+
+** alpha channel :- sets the opacity for a color.
+--> value of alpha channel :- 0 to 1.
+--> alpha channel batata h ki koi v color kitna hidden hoga aur kitna dikhega. 
+--> rgba(255,255,255,0.3)
+--> We can also write hex code for alpha channel. ranges:- 00 to ff.
+
+
+** opacity :- Css ki ek property jo batata h ki koi v element kitna dikhega ya kitna hidden hoga.
+--> range:- 0 to 1.
+--> sets the opacity for elements.
+--> opacity: 0.5;
+--> parent ka opacity zero karne par child ka v opacity zero ho jayega aur wo v hide ho jayenge.
+
+
+** CSS Transition :- Kisi v element ka ek state se dusre state me jane ke process ko transition kahte h.
+--> aur is transition ko hm transition properties ki help se control kar sakte h, ki kis tarike se ya kitne der me ek element
+    apne ek state se dusre state me jayega.
+--> Transition ke liye pahle hme initial state define karna hoga fir pseudo classes ko use karke ek final state v define karna padega,
+    aur initial state ke under hi Transition property ko use karna hoga.
+    --> kisi element par uper se girne wala effect dalna ho to transition property use kar sakte h.
+
+--> Transition shorthand :- property name | duration | timing-function | delay
+--> transition: margin-top 2s ease-in 0.2;
+--> apne screen ke uper animation ko create karne ke liye hm transition ko use kar sakte h.
+
+ 
+** CSS Transform :- This property lets you rotate, scale, skew and translate an element.
+--> agar kisi element par transform property apply hua h to us element ke child elements par v same transform property apply ho jayega.
+--> translate:- means element ko x and y direction me move kar dena, along 2D plane.
+
+         1. transform: rotate(45deg);
+
+         2. transform: scale(0.5);
+         --> scale in x and y direction:- transform: scale(0.5, 2);
+         --> scale in x direction only:- transform: scaleX(0.5);
+         --> scale in y direction only:- transform: scaleY(0.5);
+
+         3. transform: translate(100px,100px);
+         --> transform: translateX(100px);
+         --> transform: translateY(100px);
+
+         4. transform: skew(30deg);
+
+         --> transform: translateX(200px) rotate(30deg); --> two properties together.
+
+
+** Box Shadow:- ye element ke border ke around shadow add kar deta h.
+--> box-shadow: x-offset | y-offset | blurradius | color
+--> box-shadow: 2px 2px 10px green;
+--> kisi element ko screen se outer ki taraf dikkhana ho to box-shadow use kar sakte h. It creates 3D effect.
+
+** Background-image:- kisi element ke Background me image set karne ke liye use hota h.
+--> background-image: url("image_address");
+--> background-size: contain/cover/auto;
+--> contain:- repeat.
+--> cover:- crop.   used in most cases.
+--> auto:- stretch.
+
+** Position:- Position css ki wo property jo batata h ki koi v element pure webpage me kaha par hoga.
+--> top,left,right & buttom properties determine the final location of element.
+
+--> offset :- distance from a loation.
+
+1. Position: static :- by default html ke dwara element ko jaha par h position mila h wo wahi par rahega.
+--> Position static hone par top,right,left & z-index jaise properties ka koi asar nhi hota h.
+--> by default kisi v element ki Position static hoti h.
+
+2. position: relative :- means element apne center ke relative displace hoga.
+--> The offset is relative to itself based on the values of top,right,left & buttom.
+ 
+3. position: absolute :-
+--> absolute position element ko normal document flow se hata deta h,aur element ko page ke under koi space v 
+    nhi milega, aur ye element apne closest ancestor jisko static ke alawe koi position mila h uske relative me
+    apna position lega. agar kisi v ancestor ko position nhi mila h to pure body ke relative apna position lega.
+-->  jab tak parent element ko position nhi di tab tak hm child element ko pure webpage  ke relative place kar rahe h.
+
+4. position: fixed :- isme v element document ke normal flow se hat jayega, and iske liye v page me koi space 
+   create nhi hoga. Aur ye pure body/document ke relative apna position lega.
+
+** Important-->> Jab webpages me navbar ko fix karna hota h yani scroll karne par v wo niche na jaye,
+                 uske liye hm position: fixed karte h.
+
+5. position: sticky :- read yourself.
+
+
+
+
+*************************************************** Concept -5 **************************************************
+
+*** Flexbox (Flexible Box Layout) :- It is a one-dimensional layout method for arrangin items in rows or columns.
+    -->Flexbox help karta h ki hm kis tarike se elements ko screen ke uper arrange kare. elements ke
+              bich me space ko control kaise kare.
+    --> It helps making webiste responsive.
+    --> flexbox elements ke layout ko Flexible banane me help karta h.
+    --> Layout :- arrangement.
+
+** Flex Model:- ye hme axis samjhata h.
+--> Agar kisi element ko flexbox property de diya to us element ke through do axis jayenge.
+              --> 1. Main axis :- jis direction me flexbox property diya gaya wo axis.
+               --> ex:- flexbox direction=row, => main axis = horizontal axis, cross axis = vertical axis.
+              --> 2. Cross asix :-  and another axis will be cross axis.
+--> flexbox se pta chalta h ki one-dimension me elements ka kya layout hoga. unke bich me kitna spaces honge.
+--> kisi container ko display: flex  bna diya to wo flex container ho jayega and ab uske under ke elements
+    kisi ek direction(horizontal or vertical) me arrange honge, aur wo us container me hi contain rahenge.
+
+
+** Flexbox direction :- ye batata h ki elements ko kis axis and kis direction me place kiya jayega.
+          --> flexbox-direction: row;                 main asix, L ---> R
+          --> flexbox-direction: row-reverse;         main asix, R ---> L
+          --> flexbox-direction: column;              main asix, T ---> B
+          --> flexbox-direction: column-reverse;      main asix, B ---> T
+
+** justify Content :- ye browser ko batata h ki main axis ke along elements ke bich me ya unke around spaces
+                      ko kaise batna h.
+                      1. justify-content: flex-start;   --> sare elements main axis ke start ke taraf chale jayenge.
+                      2. justify-content: flex-end;     --> sare elements main axis ke end ke taraf align honge.
+                      3. justify-content: center;       --> sare elements main axis ke center me arrange hote h.
+                      5. jusitfy-content: space-between; --> extra space elements ke bich me divide ho jayega. aur 1st and last element start and end point se touch karenge.
+                      6. jusitfy-content: space-around;  --> extra space elements ke bich me divide ho jayega, aur 1st se pahle and last element ke bad half space of space btwn elements, diya jayega.
+                      7. jusitfy-content: space-evenly;  --> extra space elements ke bich me divide ho jayega, and corner wali spaces v baki space ke equal ho jayengi.
+
+** Flex Wrap :- it basically means agar ek line me jagah nhi h to dusre line me chale jao.
+                is tarike se flex items multiple lines me arange ho jate h.
+    -->Flex wrap ki help se elements apne original height & width ke sath multiple lines me arange ho jate h.
+    --> Otherwise without flex wrap, elements ko ek hi line me forcefully arrange hona padta h.
+    --> Wrap-reverse :- Cross axis ke along elements reverse ho jayenge.
+    --> fels-wrap: nowrap;
+    --> fels-wrap: wrap;
+    --> fels-wrap: wrap-reverse; --> elements wrap in reverse direction in cross axis.
+
+** Align-items :- ye elements ko cross axis ke along distribute karta h.
+       1. align-items: flex-start;
+       1. align-items: flex-end;
+       1. align-items: center;
+       1. align-items: baseline;  --> agar flex items ke under koi v content/text likha hua h, to wo sara ka sara
+                                     content ek line me dikhega.
+                                --> content ki baseline ko sabse jyada priority mil jati h.
+
+** Align-content :- ye elements ke bich me ya elements ke around extra spaces ko distribute karta h, along cross axis.
+                 --> align-content: flex-start/flex-end/center;
+                 --> align-content: space-between/ space-around/ space-evenly;
+                 --> align-content: baseline;
+
+** Align Self :- kisi individual element ko cross axis ke along align karne ke liye.
+              --> align-self: flex-start;         
+              --> align-self: flex-end;         
+              --> align-self: center;         
+              --> align-self: baseline;       
+
+              --> align self>> align items.
+
+** Flex-sizing :- agar flex container me extra space bach gya h, then hm flex items ka size(height/width) badha ya ghata sakte h.
+                  respective axis ke along.
+
+                  1. flex-basis :- container ke under flex item ka initial main size kya hoga ye set karta h.
+                  --> main size :- row alignment => main size= width, column alignment => main size = height.
+                  
+                  2. flex-grow :- ye batata h ki agar flex container ke under koi space bach gya h then flex 
+                                  item ka main size kis tarike se grow karega.
+                    --> har fles item ka by default grow size hota h = 1.
+                    --> flex-grwo: 1;
+
+                  3. flex-shrink :- jab container ke under need se km space ho us condition me flex elements 
+                                    ko kis tarike se shrink karna h.
+                                    --> fles-shrink: 1;
+
+** kisi v flex item ka width ke uper hm limit laga sakte h.
+         --> min-width: 400px;
+         --> max-width: 500px;
+
+** flex shorthand:- 
+                     1. fles-grow | flex-shrink | flex-basis
+                     --> fles: 2 2 100px;
+                     2. fles-grow | flex-basis
+                     --> flex: 2 100px;
+                     3. fles-grow(unitless)
+                     --> flex: 2;
+                     4. flex-basis
+                     --> flex: 100px;
+
+
+
+************************************************* Concept -6 ************************************************
+
+
+
+                    
+
+
+
+
+
+
+
+                                      
+
+
+
+
+                              
