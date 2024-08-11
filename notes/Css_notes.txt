@@ -513,8 +513,178 @@
 ************************************************* Concept -6 ************************************************
 
 
+** layout :- Is is a process of positioning and arranging elements on a webpage.
 
-                    
+*** Flex ya grid container ke jo direct children hote h wahi flex item ya grid items bante h. grandchildren flex/grid items nhi banenge.
+
+** Css Grid :- very similar to flexbox , ye v hme elements ke layout ko design karne me help karta h, but 2-dimension me.
+--> css ke kuchh specific use cases h like data ko tabular form me, data ko 2-d layout me design karne ke liye, then we use grid.
+--> But in maxim cases to design our website's layout we use flexbox. Because generally we design our layout in one-dimension.
+
+** Grid Model :- 
+               1. Grid lines :- row lines & column lines.
+               2. Grid Cell :- box created when row lines and column lines inetersect each other.
+               3. Grid track :- do lines ke bich ka space. 
+
+** Grid template :- they define the lines & track sizing.
+
+** grid-template-rows: 50px 50px 50px 50px;     --> it will create 4 rows, with each track sizing of 50px.
+** grid-template-column: 60px 60px 60px 60px;   --> it will create 4 columns, with each track sizing of 60px. 
+** grid-template-column: auto auto auto;        --> ye column ke liye availabe space ko 3 equal part me divide kar dega, aur 3 column create ho jayega.
+** kuch kuchh cases me space equally divide nhi hoga, because auto ka specific mtlb space ko equally divide karna nhi hota, element ke 
+  under kitna content h uspar depend karta h, isliye genrally auto ko hm prefer nhi karte h.
+
+** agar hm grid items ko height & width na de to wo pure cell ko occupy kar lega aur layout achha dikhega.
+
+** repeat :- repeat is used to divide all available space.
+             1. grid-template-rows: repeat(counte,1fr);    
+             2. grid-template-columns: repeat(counte,1fr);
+             --> 1fr :- 1 fraction of 100% availabe space.
+
+             --> grid-template-rows: repeat(3,1fr);  = grid-template-rows: 1fr 1fr 1fr;  both are same.
+             --> grid ka best use case tab hota h jab hm rows and columns ko ek sath use karte h na ki alag alag.
+
+
+** Grid gaps :- they define the gaps between the lines.
+             --> row-gap: 10px;
+             --> column-gap: 20px;
+             --> grid-gap: 10px 20px;
+             --> grid-gap: 10px;     --> this is for both row gap and column gap.
+
+** grid-column :- defines an item's starting & ending position inside the column.
+--> kisi individual element ko ek se jyade column ko occupy karna ho to grid column use karte h.
+            --> selector {
+                            grid-column-start: 1;
+                            grid-column-end: 2;
+                         }
+
+            --> grid-column: 1/4; --> startig/ending column_no.
+            --> grid-column: start_col/ span number;   --> span means kitne boxes chahiye.
+            --> grid-column: 1/ span 3.
+
+
+** ** grid-row :- defines an item's starting & ending position inside the row.
+--> kisi individual element ko ek se jyade row ko occupy karna ho to grid row use karte h.
+            --> selector {
+                            grid-row-start: 1;
+                            grid-row-end: 2;
+                         }
+
+            --> grid-row: 1/4; --> startig/ending column_no.
+            --> grid-row: start_col/ span number;   --> span means kitne boxes chahiye.
+            --> grid-row: 1/ span 3.
+
+
+
+** Common properties to aligh items in grid:- 
+                      --> justify :- elements ko horizontally align karta h.
+                         1. justify-items: start/end/center;  --> this is for container.
+                         2. justify-self: start/end/center;  --> this is for an individual element.
+
+                      --> align :- elements ko vertically align karta h.
+                         1. align-items: start/end/center;    --> this is for container.
+                         1. align-self: start/end/center;    --> this is for an individual element.
+
+                      --> place :- jusitfy & align ko sath me use karne ke liye.
+                         1. place-items: start/end/center;  --> this is for container;
+                         1. place-self: start/end/center;  --> this is for an individual element;
+
+** grid container ek block element hota h, lekin hm chahte h ki grid container as a inline element kam kare to uske liye kar sakte h,
+   --> display: inline-grid;
+
+
+
+
+*** CSS animations :- to animate css elements.
+--> similar to css transition but css animation hme aur jyada control deta h elements ke uper.
+
+---> Css me kisi v element ko animate karne ka mtlb hota h, hm us element ko ek state se dusre state me le jana chahte h.
+---> kisi element ka ek state se dusre state me jane ka jo transition hota h use hi animation kahte hai.
+
+---> kisi v element par animation apply karne se pahle, hme us animation ka ek template create karna padta h using @keyframes, 
+     then hm us element par animation apply kar sakte h.
+---> template :- @keyframes animation_name {
+                                             from {
+                                                    here define initial state of element.
+                                             }
+                                             to {
+                                                   here define final state of element.
+                                             }
+                                           }
+
+---> hm jis property ke liye animation create karna chahte h un sabhi properties ke liye hme template create karna padega.
+---> fir is template ke help se us particular element me ja kar hm animation apply kar sakte h.
+
+---> Animation properties :- 1. animation-name:
+                             2. animation-duration:
+                             3. animation-timing-function:
+                             4. animation-delay:
+                             5. animation-iteration-count:  animation kitna bar chalega.
+                             6. animation-direction:
+                                                   1. animation-direction: normal;
+                                                   2. animation-direction: reverse;
+                                                   3. animation-direction: alternate;
+                                                   4. animation-direction: alternate-re;
+
+---> example to apply animation in a div of class="box". and the property in which animation will apply is font-size.
+
+         @keyframes font_animate {
+            from {
+                font-size: 20px;
+            }
+            to {
+                font-size: 40px;
+            }
+         }
+
+         .box {
+            animation-name: font_animate;
+            animation-duration: 2s;
+            animation-timing-function: ease-in;
+            animation-delay: 0;
+            animation-iteration-count: 3;
+            aniamtion-direction: normal;
+         }
+
+
+*** animation shorthand :- 
+                   --> animation: font_animate 2s ease-in 0s 3 normal;
+
+
+** Agar hm chahte h kisi single element par multiple properties change ho animation karne par then,
+   us condition me @keyframes ke under hi initial and final state me hi wo sare properties ko define karna hota h.
+--> @keyframes animation_name {
+                                 from {
+                                    width: 10px;
+                                    background-color: red;
+                                 }
+                                 to {
+                                    width: 20px;
+                                    background-color: green;
+                                 }
+                              }
+
+*** % in animation :-  animation ko different stages me apply karne ke liye.
+
+                         @keyframes animation_name {
+                                                      0% {
+                                                             background-color: red;
+                                                         }  
+                                                      50% {
+                                                             background-color: green;
+                                                         }
+                                                      75% {
+                                                             background-color: blue;
+                                                          }
+                                                      100% {
+                                                             background-color: yellow;
+                                                          }
+
+                                                    }
+
+    
+
+
 
 
 
