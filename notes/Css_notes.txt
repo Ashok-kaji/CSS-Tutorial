@@ -682,6 +682,72 @@
 
                                                     }
 
+
+**** Media queries :- ye help karta hai websites ko responsive banane me.
+
+---> jo hmare devices hote h unke kuchh properties/features hote jaise: height,width & orientation, and in features ke according 
+     websites me kuchh responsive changes hoti h to in features ko media features kahte hai.
+
+---> viewport :- browser ke uper website ka jitna part visible hota h, use viewport kahte h.
+
+*** Media features :-   1. width(of viewport):- agar hme device ke width ke according responsiveness lana h.
+
+                                --> @media (width: 400px) {
+                                                       div {
+                                                         background-color: red;
+                                                       }
+                                                      }
+
+                                 --> @media (min-width: 400px) {
+                                                              div{
+                                                               background-color: red;
+                                                              }
+                                                            }
+
+                                 --> @media (max-width: 800px) {
+                                                              div{
+                                                               background-color: pink;
+                                                              }
+                                                            }
+
+                                 --> @media (min-width: 200px)and(max-width: 800px) {
+                                                              div{
+                                                               background-color: pink;
+                                                              }
+                                                            }
+
+                           2. orientation :-
+
+                              --> @media (orientation: landscape) {
+                                                                    div{
+                                                                     background-color: red;
+                                                                    }       
+                                                                   } 
+
+
+**** Z-index :- ye batata h ki website par kaun si element uper wale level par aayegi aur kaun sa element niche wali level par.
+
+---> stack-levels.
+---> by default sare ke sare elements same level par hote h, i.e:- z-index: auto(0);
+---> z-index: 1/2/3.....;
+---> z-index: -1/-2/-3.....;
+---> agar sare elements same level par h, aur wo ek dusre ko overlap kar rahe h, us condition me jis element ke css bad me likhi jayegi
+     wo element screen me samne ke taraf dikhega. aur is chij ko hm change kar sakte h by z-index.
+---> z-index bas usi element ko de sakte jiske liye koi position set ho. mtlb jis v element ki position static or default hogi
+     us element ke liye hm z-index property nhi set kar sakte h.
+
+
+     
+
+
+
+    
+
+                                 
+
+
+                                     
+
     
 
 
