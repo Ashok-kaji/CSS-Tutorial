@@ -537,8 +537,8 @@
 ** agar hm grid items ko height & width na de to wo pure cell ko occupy kar lega aur layout achha dikhega.
 
 ** repeat :- repeat is used to divide all available space.
-             1. grid-template-rows: repeat(counte,1fr);    
-             2. grid-template-columns: repeat(counte,1fr);
+             1. grid-template-rows: repeat(count,1fr);    
+             2. grid-template-columns: repeat(count,1fr);
              --> 1fr :- 1 fraction of 100% availabe space.
 
              --> grid-template-rows: repeat(3,1fr);  = grid-template-rows: 1fr 1fr 1fr;  both are same.
@@ -735,6 +735,60 @@
      wo element screen me samne ke taraf dikhega. aur is chij ko hm change kar sakte h by z-index.
 ---> z-index bas usi element ko de sakte jiske liye koi position set ho. mtlb jis v element ki position static or default hogi
      us element ke liye hm z-index property nhi set kar sakte h.
+
+
+
+
+
+
+
+     ***************  Basic Design Principles for better looking websites  **************
+
+     ---> Explore concepts of UI/UX design.
+     ---> don't use too many colors and bright colors.
+     ---> leave empty spaces :- neat & clean look.
+
+     --->  Color theory:- 
+                        1. color wheel:- when primary, secondary & tertiary colors arranged in a circle called color wheel.
+                        --> 3 primary colors in nature - 1. Red 2. Blue 3. yellow
+                        --> helps in website/graphic/UI-UX design.
+                        --> colors ke sath associated meanings hote h like:- 
+                                                      --> meaning of colors:-
+                                                                             yellow - to highlight, joy.
+                                                                             Red - excitment,danger,hungry.
+                                                                             black - luxury,premium.
+                                                                             green - health.
+                        --> jo meri website ki motive h , agar wo colors ke sath match kare to wo aur jyada deeper meaning convey karta h user ko.
+
+
+      ---> color combinations:- 
+                             1. Subtle color combination - Monochromatic :- hm ek color pick kar lete h, aur uske 2-3 lighter shades choose
+                                                                            kar lete h.
+                             2. Impactful color combination - complementary :- wo colors jo color wheel me ek dusre ke bilkul opposite hote hai.
+
+                             3. High contrast combination - Triadic :- color wheel par equally seperated 3 colors ko use karna.
+
+
+-----> Typography :- style & appearance of text.
+          --> website me jitna important color hota h, utna hi important typography hota h.
+          --> typography is very important, what meaning you want to convey thorugh text.
+          --> Times new roman :- professional.
+          --> website ke kisi ek section me max 2 font-style use karna chahiye.
+
+          1. font-families :- sans-serif, serif, monospace, fantasy etc.
+
+
+
+****** Google fonts:- library of free fonts.
+               --> almost 1513 fonts available
+               --> bht bar bht sare fonts sare browser me available nhi hote h, us case me google fonts use karna chahiye.
+
+
+**** kisi v element ko screen se gayab karne ke liye set kar sakte h:-      display: none;
+     isse screen par se iski jo space thi wo v hat jayega.
+
+
+
 
 
      

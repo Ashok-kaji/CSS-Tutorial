@@ -7,3 +7,27 @@
 4. color palletes website :- you can chekck here, which color combinations you want on your website.
 
 5. Unsplash :- copy right free images.
+
+6. Canva color wheel :-   know more about color & color combinations.
+                      -->to explore color and color combinations for your websites.
+
+7. google fonts :- To use google fonts in your websites.
+        --> How to use this in our websites:- 
+                                             1. first go to google font website and find the font you want to use. 
+                                             2. then, copy the specific font's link and paste it in <head> of html document.
+                                             3. also copy the css rule for that font and paste it in that particular element in css file.
+                                             4. preconnect means telling the browser that you may need to connect with mentioned websites.
+
+
+8. Icons :- 
+           1. Google Icons :- 
+                            1. 1st select the icon you want to use, then copy the icon link from "static icon font".
+                            2. Paste the copied link to <head> of html file.
+                            3. Now to insert that icon anywhere in the page just copy the link from "inserting the icon" and paste 
+                               wherever you want to use in html file.
+
+           2. Font Awesome :- 
+                            1. 1st go to cdnjs website and search for "font awesome" and then copy link tag of first option shown.
+                            2. Now paste the copied link in <head> of html file.
+                            3. Now go to font awesome website and select your icon and copy the html icon link and paste it wherever you 
+                              want in html file.
