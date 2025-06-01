@@ -31,3 +31,5 @@
                             2. Now paste the copied link in <head> of html file.
                             3. Now go to font awesome website and select your icon and copy the html icon link and paste it wherever you 
                               want in html file.
+
+9. animatedimages.org :- for free animated imgaes . link:- https://www.animatedimages.org/
